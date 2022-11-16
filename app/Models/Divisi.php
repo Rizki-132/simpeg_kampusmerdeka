@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Divisi extends Model
 {
     use HasFactory;
+    //mapping ke table
+    protected $table = 'Divisi';
+    //mapping ke kolom fieldnya
+
+    protected $fillable = ['nama'];
 }
