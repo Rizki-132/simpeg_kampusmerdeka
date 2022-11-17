@@ -12,5 +12,6 @@ class Pegawai extends Model
      protected $table = 'pegawai';
      //mapping ke kolom fieldnya
  
-     protected $fillable = ['nip','nama','jabatan_id','divisi_id','gender'];
+     protected $fillable = ['nip','nama','jabatan_id','divisi_id','gender',
+                            'tgl_lahir','tmp_lahir','alamat','foto'];
 }

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\MahasiswaController;
 use App\http\Controllers\StafController;
-
+use App\http\Controllers\DivsiController;
+use App\http\Controllers\JabatanController;
+use App\http\Controllers\PegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +65,6 @@ Route::get('/administrator', function () {
 
 // jika menggunakan php artisan make:controller StafController --resource
 Route::resource('staf',StafController::class); 
+Route::resource('divisi',DivisiController::class); 
+Route::resource('jabatan',JabatanController::class); 
+Route::resource('pegawai',PegawaiController::class); 
