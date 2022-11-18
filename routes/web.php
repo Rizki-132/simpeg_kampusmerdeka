@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\MahasiswaController;
 use App\http\Controllers\StafController;
-use App\http\Controllers\DivsiController;
+use App\http\Controllers\DivisiController;
 use App\http\Controllers\JabatanController;
 use App\http\Controllers\PegawaiController;
 
@@ -31,12 +31,12 @@ Route::get('/salam', function () {
     return view('halaman_salam');
 });
 
-Route::get('/pegawai/{nama}/{divisi}', function ($nama,$divisi) {
-    return '<ol>
-                <li>nama : '.$nama.'</li>
-                <li>Divisi : '.$divisi.'</li>
-            </ol>';
-});
+// Route::get('/pegawai/{nama}/{divisi}', function ($nama,$divisi) {
+//     return '<ol>
+//                 <li>nama : '.$nama.'</li>
+//                 <li>Divisi : '.$divisi.'</li>
+//             </ol>';
+// });
 
 Route::get('/mahasiswa', [MahasiswaController::class,'dataMahasiswa']);
 

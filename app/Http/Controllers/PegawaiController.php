@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pegawai;
 
 class PegawaiController extends Controller
 {
@@ -46,7 +47,8 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        $peg_id = Pegawai::find($id);
+        return view('pegawai.detail',compact('peg_id'));
     }
 
     /**

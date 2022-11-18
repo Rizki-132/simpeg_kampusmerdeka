@@ -9,8 +9,13 @@ class Divisi extends Model
 {
     use HasFactory;
     //mapping ke table
-    protected $table = 'Divisi';
+    protected $table = 'divisi';
     //mapping ke kolom fieldnya
 
     protected $fillable = ['nama'];
+
+    public function Pegawai()
+    {
+        return $this->hasMany(Pegawai::class);
+    }
 }
