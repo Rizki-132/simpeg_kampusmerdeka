@@ -28,8 +28,8 @@
                         <th scope="row">{{ $no }}</th>
                         <td>{{ $row->nip }}</td>
                         <td>{{ $row->nama }}</td>
-                        <td>{{ $row->jabatan_id }}</td>
-                        <td>{{ $row->divisi_id }}</td>
+                        <td>{{ $row->jabatan->nama }}</td>
+                        <td>{{ $row->divisi->nama }}</td>
                         <td>{{ $row->gender }}</td>
                         <td>{{ $row->alamat }}</td>
                         <td>{{ $row->foto }}</td>

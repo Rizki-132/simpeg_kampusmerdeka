@@ -5,7 +5,11 @@
 
         <div class="card-body">
             <h5 class="card-title">Data Jaabatan</h5>
-
+            <a class="btn btn-primary" tittle="Detail Pegawai" 
+                            href="{{ url('pegawai')}}">
+                      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            </a>
+            <br/>
             <table class="table table-borderless datatable">
                 <thead>
                     <tr>

@@ -9,5 +9,11 @@ class Gaji extends Model
 {
     use HasFactory;
 
-    protected $table = 'Gaji';
+    protected $table = 'gaji';
+
+     //tabel relasi merujuk atau merefer ke tabel master / tujuan
+     public function pegawai()
+     {
+         return $this->belongsTo(Pegawai::class);
+     }
 }

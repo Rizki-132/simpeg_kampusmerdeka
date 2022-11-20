@@ -8,5 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Pelatihan extends Model
 {
     use HasFactory;
-    protected $table = 'Pelatihan';
+    protected $table = 'pelatihan';
+
+     //tabel relasi merujuk atau merefer ke tabel master / tujuan
+     public function pegawai()
+     {
+         return $this->belongsTo(Pegawai::class);
+     }
+
+
+      //tabel relasi merujuk atau merefer ke tabel master / tujuan
+      public function materi()
+      {
+          return $this->belongsTo(Materi::class);
+      }
 }

@@ -13,8 +13,8 @@ class Divisi extends Model
     //mapping ke kolom fieldnya
 
     protected $fillable = ['nama'];
-
-    public function Pegawai()
+    //relasi one to many ke table pegawai
+    public function pegawai()
     {
         return $this->hasMany(Pegawai::class);
     }
