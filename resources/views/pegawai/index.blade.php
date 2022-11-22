@@ -5,7 +5,11 @@
 
         <div class="card-body">
             <h5 class="card-title">Data Pegawai</h5>
-
+            <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
+                            href="{{ route('pegawai.create')}}">
+                            <i class="bi bi-person-plus"></i>
+            </a>
+            <br/>
             <table class="table table-borderless datatable">
                 <thead>
                     <tr>
@@ -25,7 +29,7 @@
                     @php $no = 1;  @endphp
                     @foreach ($pegawai as $row)
                     <tr>
-                        <th scope="row">{{ $no }}</th>
+                        <th scope="row">{{ $no++ }}</th>
                         <td>{{ $row->nip }}</td>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->jabatan->nama }}</td>

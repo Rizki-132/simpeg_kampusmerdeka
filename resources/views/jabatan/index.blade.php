@@ -5,11 +5,18 @@
 
         <div class="card-body">
             <h5 class="card-title">Data Jaabatan</h5>
-            <a class="btn btn-primary" tittle="Detail Pegawai" 
-                            href="{{ url('pegawai')}}">
-                      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-            </a>
+          
+            @if ($message = Session::get('seccess'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
             <br/>
+            <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
+                            href="{{ route('jabatan.create')}}">
+                            <i class="bi bi-plus-circle"></i>
+            </a>
+           
             <table class="table table-borderless datatable">
                 <thead>
                     <tr>
@@ -22,7 +29,7 @@
                     @php $no = 1;  @endphp
                     @foreach ($jabatan as $row)
                     <tr>
-                        <th scope="row">{{ $no }}</th>
+                        <th scope="row">{{ $no++ }}</th>
                         <td>{{ $row->nama }}</td>
                     </tr>
                     @endforeach

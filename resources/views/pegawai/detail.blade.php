@@ -20,7 +20,7 @@
               </div>
                   <a class="btn btn-primary" tittle="Detail Pegawai" 
                             href="{{ url('pegawai')}}">
-                      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                            <i class="bi bi-arrow-left-square"></i>
                  </a>
             </div>
           </div>

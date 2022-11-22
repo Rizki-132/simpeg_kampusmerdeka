@@ -6,6 +6,11 @@
         <div class="card-body">
             <h5 class="card-title">Data Divisi</h5>
 
+            <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
+                            href="{{ route('divisi.create')}}">
+                            <i class="bi bi-plus-circle"></i>
+            </a>
+            <br/>
             <table class="table table-borderless datatable">
                 <thead>
                     <tr>
@@ -18,7 +23,7 @@
                     @php $no = 1;  @endphp
                     @foreach ($divisi as $row)
                     <tr>
-                        <th scope="row">{{ $no }}</th>
+                        <th scope="row">{{ $no++ }}</th>
                         <td>{{ $row->nama }}</td>
                     </tr>
                     @endforeach
