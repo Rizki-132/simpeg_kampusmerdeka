@@ -43,7 +43,13 @@
                         <td>{{ $row->divisi->nama }}</td>
                         <td>{{ $row->gender }}</td>
                         <td>{{ $row->alamat }}</td>
-                        <td>{{ $row->foto }}</td>
+                        <td width="10%">
+                            @empty($row->foto)
+                            <img src="{{ url('admin/img/no-foto.jpg') }}" width="55%" alt="Profile" class="rounded-circle">
+                            @else
+                            <img src="{{ url('admin/img') }}/{{ $row->foto }}" width="55%" alt="Profile" class="rounded-circle">
+                            @endempty
+                        </td>
                         <td>        
                         <form method="POST" action="{{ route('pegawai.destroy', $row->id) }}">
                             @csrf

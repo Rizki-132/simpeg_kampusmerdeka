@@ -22,7 +22,7 @@
               </div>
               @endif
               <!-- General Form Elements -->
-              <form class="row g-3" method="POST" action="{{route('pegawai.store')}}">
+              <form class="row g-3" method="POST" action="{{route('pegawai.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">NIP</label>
@@ -86,7 +86,7 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Textarea</label>
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                   <div class="col-sm-10">
                     <textarea class="form-control" name="alamat" style="height: 100px"></textarea>
                   </div>

@@ -6,20 +6,24 @@
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+              @empty($peg_id->foto)
+              <img src="{{ url('admin/img/no-foto.jpg') }}" alt="Profile" class="rounded-circle">
+              @else
+              <img src="{{ url('admin/img') }}/{{ $peg_id->foto }}" alt="Profile" class="rounded-circle">
+              @endempty
 
-              <img src="{{ url('admin/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
               <h2>{{ $peg_id->nama }}</h2>
               <h3>{{ $peg_id->jabatan->nama }}</h3>
               <div class="alert alert-primary" role="alert">
-                     NIP : {{ $peg_id->gender }}
+                     NIP : {{ $peg_id->nip }}
                     <br/>Divis  : {{ $peg_id->divisi->nama }}
                     <br/>Jenis Kelamin   : {{ $peg_id->gender }}
                     <br/>Tempat Lahir   : {{ $peg_id->tmp_lahir }}
                     <br/>Tanggal Lahir   : {{ $peg_id->tgl_lahir }}
                     <br/>Alamat   : {{ $peg_id->alamat }}
               </div>
-                  <a class="btn btn-primary" tittle="Detail Pegawai" 
-                            href="{{ url('pegawai')}}">
+                  <a class="btn btn-primary" title="Detail Pegawai" 
+                            href="{{ url('pegawai') }}">
                             <i class="bi bi-arrow-left-square"></i>
                  </a>
             </div>

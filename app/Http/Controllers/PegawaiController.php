@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Divisi;
+use DB;
 
 class PegawaiController extends Controller
 {
@@ -56,10 +57,34 @@ class PegawaiController extends Controller
             'tmp_lahir' => 'required',
             'tgl_lahir' => 'required',
             'alamat' => 'nullable|string|min:10',
-            'foto' => 'nullable|string'
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
         ]);
 
-        Pegawai::create($request->all());
+        // Pegawai::create($request->all());
+        //-------------Apakah user ingin upload foto------
+        if(!empty($request->foto)){
+            $fileName = $request->nip.'.'.$request->foto->extension();
+            //$fileName = $request->foto->getClientOriginalName(); untuk nama original di foto
+            $request->foto->move(public_path('admin/img'),$fileName);
+        }
+        else{
+            $fileName='';
+        }
+        //lakukan insert data dari request form
+        
+        DB::table('pegawai')->insert(
+            [
+                'nip'=>$request->nip,
+                'nama'=>$request->nama,
+                'jabatan_id'=>$request->jabatan_id,
+                'divisi_id'=>$request->divisi_id,
+                'gender'=>$request->gender,
+                'tmp_lahir'=>$request->tmp_lahir,
+                'tgl_lahir'=>$request->tgl_lahir,
+                'alamat'=>$request->alamat,
+                'foto'=>$fileName,
+                'created_at'=>now()
+            ]);
 
         return redirect()->route('pegawai.index')
                          ->with('success','Pegawai berhasil di simpan');
