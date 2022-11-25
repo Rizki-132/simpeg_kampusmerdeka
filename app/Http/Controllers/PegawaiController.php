@@ -16,7 +16,9 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = Pegawai::all();
+        
+        // $pegawai = Pegawai::all();
+        $pegawai = Pegawai::orderBy('id','DESC')->get();
         return view('pegawai.index',compact('pegawai'));
     }
 
@@ -43,7 +45,24 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //proses form input pegawai
+        $request->validate([
+            
+            'nip' => 'required|unique:pegawai|max:3',
+            'nama' => 'required|max:45',
+            'jabatan_id' => 'required|integer',
+            'divisi_id' => 'required|integer',
+            'gender' => 'required',
+            'tmp_lahir' => 'required',
+            'tgl_lahir' => 'required',
+            'alamat' => 'nullable|string|min:10',
+            'foto' => 'nullable|string'
+        ]);
+
+        Pegawai::create($request->all());
+
+        return redirect()->route('pegawai.index')
+                         ->with('success','Pegawai berhasil di simpan');
     }
 
     /**
@@ -89,6 +108,10 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //menghapus data / delete
+        $peg_id = Pegawai::find($id);
+        Pegawai::where('id',$id)->delete();
+        return redirect()->route('pegawai.index')
+                            ->with('success','data Pegawai berhasil di hapus');
     }
 }

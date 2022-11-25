@@ -7,9 +7,23 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Form input Pegawai</h5>
-
+              <br/>
+               
+              @if ($errors->any())
+              <div class="alert alert-danger">
+                <strong>Oops!!</strong> Terjadi kesalahan
+                saat input
+                <br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+              </div>
+              @endif
               <!-- General Form Elements -->
-              <form>
+              <form class="row g-3" method="POST" action="{{route('pegawai.store')}}">
+                @csrf
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">NIP</label>
                   <div class="col-sm-10">
@@ -87,8 +101,14 @@
              
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                  <div class="col-sm-5">
+                    <button type="submit" class="btn btn-primary btn-sm" title="simpan pegawai">
+                    <i class="bi bi-cloud-download-fill">Simpan</i>
+                    </button>
+                    &nbsp;
+                    <a class="btn btn-warning btn-sm" href="{{url('pegawai')}}" type="submit" class="btn btn-primary" title="Kembali">
+                      <i class="bi bi-arrow-right-circle">Kembali</i>
+                    </a>
                   </div>
                 </div>
 

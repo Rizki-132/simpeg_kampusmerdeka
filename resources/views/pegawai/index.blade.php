@@ -5,6 +5,13 @@
 
         <div class="card-body">
             <h5 class="card-title">Data Pegawai</h5>
+
+            @if ($message = Session::get('seccess'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+
             <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
                             href="{{ route('pegawai.create')}}">
                             <i class="bi bi-person-plus"></i>
@@ -37,11 +44,25 @@
                         <td>{{ $row->gender }}</td>
                         <td>{{ $row->alamat }}</td>
                         <td>{{ $row->foto }}</td>
-                        <td>
+                        <td>        
+                        <form method="POST" action="{{ route('pegawai.destroy', $row->id) }}">
+                            @csrf
+                            @method('DELETE')
                             <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
                             href="{{ route('pegawai.show', $row->id) }}">
                                 <i class="bi bi-eye"></i> 
                             </a>
+
+                            <a class="btn btn-warning btn-sm" tittle="Ubah Pegawai" 
+                            href="{{ route('pegawai.edit', $row->id) }}">
+                            <i class="bi bi-pencil-square"></i>
+                            </a>
+
+                            <button type="submit" class="btn btn-danger btn-sm" tittle="Hapus Pegawai" 
+                                 onclick="return confirm('Anda Yakin data akan di hapus ?')">
+                                 <i class="bi bi-trash"></i>
+                            </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
