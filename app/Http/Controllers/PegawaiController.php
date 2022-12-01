@@ -7,6 +7,7 @@ use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Divisi;
 use DB;
+use PDF;
 
 class PegawaiController extends Controller
 {
@@ -192,5 +193,29 @@ class PegawaiController extends Controller
         Pegawai::where('id',$id)->delete();
         return redirect()->route('pegawai.index')
                             ->with('success','data Pegawai berhasil di hapus');
+    }
+
+    public function generatePDF()
+    {
+        $data = [
+            'title' => 'Test penggunaan Extension PDF',
+            'date' => date('m/d/Y'),
+            'isi' => 'menggunakan pustaka barryvdh/laravel-dompdf '
+        ]; 
+            
+        $pdf = PDF::loadView('pegawai.myPDF', $data);
+     
+        return $pdf->download('testDownload.pdf');
+    }
+
+    public function pegawaiPDF()
+    {
+
+        // $pegawai = Pegawai::get();
+        $pegawai = Pegawai::all();
+        // dd($pegawai);
+        $pdf = PDF::loadView('pegawai.pegawaiPDF', ['pegawai'=>$pegawai]);
+     
+        return $pdf->download('test_pegawai.pdf');
     }
 }

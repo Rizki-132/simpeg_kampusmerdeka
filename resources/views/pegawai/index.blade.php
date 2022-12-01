@@ -12,9 +12,11 @@
             </div>
             @endif
 
-            <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" 
-                            href="{{ route('pegawai.create')}}">
-                            <i class="bi bi-person-plus"></i>
+            <a class="btn btn-primary btn-sm" tittle="Detail Pegawai" href="{{ route('pegawai.create')}}">
+                <i class="bi bi-person-plus"></i>
+            </a>&nbsp;
+            <a class="btn btn-danger btn-sm" tittle="Export to PDF" href="{{ url('pegawai-pdf')}}">
+                <i class="bi bi-file-earmark-pdf"></i>
             </a>
             <br/>
             <table class="table table-borderless datatable">
