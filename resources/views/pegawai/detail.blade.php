@@ -5,6 +5,11 @@
         <div class="col-xl-12">
 
           <div class="card">
+            @if ($message = Session::get('seccess'))
+              <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+              </div>
+            @endif
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               @empty($peg_id->foto)
               <img src="{{ url('admin/img/no-foto.jpg') }}" alt="Profile" class="rounded-circle">

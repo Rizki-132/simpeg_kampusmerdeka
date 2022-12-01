@@ -68,3 +68,4 @@ Route::resource('staf',StafController::class);
 Route::resource('divisi',DivisiController::class); 
 Route::resource('jabatan',JabatanController::class); 
 Route::resource('pegawai',PegawaiController::class); 
+// Route::get('pegawai-edit/{edit}', [PegawaiController::class,'edit']);
