@@ -17,7 +17,10 @@
             </a>&nbsp;
             <a class="btn btn-danger btn-sm" tittle="Export to PDF" href="{{ url('pegawai-pdf')}}">
                 <i class="bi bi-file-earmark-pdf"></i>
-            </a>
+            </a>&nbsp;
+             <a class="btn btn-success btn-sm" tittle="Export to Excel" href="{{ url('pegawai-excel')}}">
+                <i class="bi bi-file-earmark-excel"></i>
+            </a>&nbsp;
             <br/>
             <table class="table table-borderless datatable">
                 <thead>
